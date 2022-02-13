@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;800&display=swap");
 :root {
-  --primary-color_dark: white;
+  --primary-color_dark: #041E3D:
 }
 
 body {
@@ -82,7 +82,7 @@ body {
         border-radius: 0.8em;
         font-size: 1.2em;
         color: var(--primary-color_dark);
-        background-color: #22dea9;
+        background-color: white;
         cursor: pointer;
       }
     }
