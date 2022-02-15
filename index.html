@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css" /> 
+    
+
   </head>
   <body>
+   
     <div class="navbar">
       <div class="container">
         <img
@@ -18,7 +22,7 @@
           width="38"
         />
 
-        <nav>
+         <nav>
           <img
             id="mobile-exit"
             class="mobile-menu-exit"
@@ -26,12 +30,14 @@
             alt="close-nav"
           />
           <ul class="primary-nav">
-            <li><a href="#">Home</a></li>
+            <li><img id= "menu-logo" src="assets/images/logo_whitee.svg" alt="logo"></li>
+            <li><a id="Home" href="#">Home</a></li>
             <li><a href="#">Log in</a></li>
             <li><a href="#">Contact us</a></li>
             <li><a href="#">About</a></li>
           </ul>
-        </nav>
+        </nav> 
+        
       </div>
     </div>
     <section class="main-home">
@@ -48,8 +54,21 @@
         <div class="button-div">
           <a href="#" class="signup-button">Sign up</a>
           <a href="#" class="login-button">Log in</a>
+          
         </div>
       </div>
     </section>
+    <script>
+      const mobileBtn = document.getElementById('mobile-cta')
+          nav = document.querySelector('nav')
+          mobilebtnExit = document.getElementById('mobile-exit')
+
+          mobileBtn.addEventListener('click', () => {
+            nav.classList.add('menu-btn');
+        })
+        mobilebtnExit.addEventListener('click', () => {
+            nav.classList.remove('menu-btn');
+        })
+    </script>
   </body>
 </html>
