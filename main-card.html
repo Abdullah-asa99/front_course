@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main-card.css" />
+  </head>
+  <body>
+    <div class="my-row">
+      <div class="example-1 my-card">
+        <div class="wrapper">
+          <div class="the-cards">
+            <div
+              ontouchstart="touchStart(event)"
+              ontouchmove="touchMove(event)"
+              ontouchend="touchEnd()"
+              id="backSheet"
+              class="data"
+            >
+              <div class="content">
+                <div class="blueeee">
+                  <h1 class="product-name">product name</h1>
+                  <ul>
+                    <li>
+                      <img src="#" alt="artist-pic" />
+                    </li>
+                    <li>
+                      <h4><a href="#">artist name</a></h4>
+                    </li>
+                  </ul>
+                </div>
+                <div class="whiteee">
+                  <ul>
+                    <li>
+                      <h2 class="authenticity">The item is authentic</h2>
+                    </li>
+                    <li
+                      style="
+                        padding: 0;
+                        margin: 0;
+                        position: relative;
+                        top: 8px;
+                      "
+                    >
+                      <img
+                        style="width: 2rem"
+                        src="/assets/images/checkbox-circle-fill.svg"
+                        alt="checkmark"
+                      />
+                    </li>
+                  </ul>
+                  <h4>Description</h4>
+                  <h5>Name:</h5>
+                  <p>For he's a jolly good fellow 2020</p>
+                  <h5>Price:</h5>
+                  <p>100000$</p>
+                  <h5>Media:</h5>
+                  <p>oil and gold leaf on canvas</p>
+                  <h5>Ideas behind the work:</h5>
+                  <p>
+                    In my work, For he is a jolly good fellow, I focused on how
+                    loneliness can affect a person's psyche and perceptions. I
+                    as the will for a couple more fightsBoxing icon has the will
+                    for a couple more fightsBoxing icon has the will for a
+                    couple more fightsBoxing icon has the will for a couple more
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- <div id="frontSheet" class="data">
+              <div class="content">
+                <div class="front-sheet-head">
+                  <h2 class="authenticity">The item is authentic</h2>
+                  <img src="#" alt="checkmark" />
+                  <p>
+                    Boxing icon has the will for a couple more fightsBoxing icon
+                    has the will for a couple more fightsBoxing icon has the
+                    will for a couple more fightsBoxing icon has the will for a
+                    couple more fightsBoxing icon has the will for a couple more
+                    fightsBoxing icon has the will for a couple more
+                    fightsBoxing icon has the will for a couple more
+                    fightsBoxing icon has the will for a couple more
+                    fightsBoxing icon has the will for a couple more fights
+                  </p>
+                </div>
+
+                <h1 class="title">
+                  <a href="#"
+                    >Boxing icon has the will for a couple more fights
+                  </a>
+                </h1>
+                <p class="text"></p>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var expanded = false;
+      /* (function () {
+        var expanded = false;
+        $("#backSheet").click(function () {
+          if (!expanded) {
+            $(this).animate({ left: "0px" }, { duration: 400 });
+            expanded = true;
+          } else {
+            $(this).animate({ left: "565px" }, { duration: 400 });
+            expanded = false;
+          }
+        });
+      }); */
+
+      /* 
+      let card = document.getElementById("backSheet");
+      card.style.transform = "translateY(30%)";
+      card.onclick = function () {
+        expand();
+      };
+
+      function expand() {
+        
+        if (!expanded) {
+          card.style.transform = "translateY(0em)";
+          expanded = true;
+        } else {
+          card.style.transform = "translateY(30%)";
+          expanded = false;
+        }
+      } */
+      let card = document.getElementById("backSheet");
+      card.style.height = "470px";
+      card.style.transition = "height 300ms";
+      var startingX, startingY, movingX, movingY;
+      function touchStart(evt) {
+        startingX = evt.touches[0].clientX;
+        startingY = evt.touches[0].clientY;
+      }
+      function touchMove(evt) {
+        movingX = evt.touches[0].clientX;
+        movingY = evt.touches[0].clientY;
+      }
+      function touchEnd() {
+        if (startingX + 100 < movingX) {
+        } else if (startingX - 100 > movingX) {
+        }
+
+        if (startingY + 100 < movingY && expanded) {
+          //close
+          /* console.log("down"); */
+          expanded = false;
+          card.style.height = "470px";
+        } else if (startingY - 100 > movingY && !expanded) {
+          //open
+          /* onsole.log("up"); */
+          card.style.height = "670px";
+          expanded = true;
+        }
+      }
+    </script>
+  </body>
+</html>
