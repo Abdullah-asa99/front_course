@@ -5,9 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css" />
     <link rel="stylesheet" href="css/main.css" />
-    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/menu.css" />
   </head>
   <body>
     <!-- 
@@ -38,20 +37,47 @@
         </nav> 
         
       </div> -->
-      <div class="menu-wrap">
-        <input type="checkbox" class="toggler" />
-        <div class="hamburger"><div></div></div>
-        <div class="menu">
-          <div>
-            <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">CSS</a></li>
-              <li><a href="#">Script</a></li>
-              <li><a href="#">Com</a></li>
-            </ul>
-          </div>
+    <div class="menu-wrap">
+      <!-- fix icon alignment  -->
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <ul class="list-items">
+            <li>
+              <ul>
+                <img src="assets/images/home-svg.svg" alt="home-icon" />
+                <a href="#">Home</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img src="assets/images/person.svg" alt="home-icon" />
+                <a href="#">Log in</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img
+                  src="assets/images/phone-svgrepo-com.svg"
+                  alt="home-icon"
+                />
+                <a href="#">Contact us</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img
+                  src="assets/images/about-information-info-help-svgrepo-com.svg"
+                  alt="home-icon"
+                />
+                <a href="#">About</a>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
+    </div>
     <section class="main-home">
       <div class="container">
         <img
@@ -69,51 +95,5 @@
         </div>
       </div>
     </section>
-    <script>
-      /*  const mobileBtn = document.getElementById('mobile-cta')
-          nav = document.querySelector('nav')
-          mobilebtnExit = document.getElementById('mobile-exit')
-
-          mobileBtn.addEventListener('click', () => {
-            nav.classList.add('menu-btn');
-        })
-        mobilebtnExit.addEventListener('click', () => {
-            nav.classList.remove('menu-btn');
-        }) */
-        
-    </script>
-     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-     <!-- CSSScript Demo Page -->
-     <ins class="adsbygoogle"
-          style="display:inline-block;width:728px;height:90px"
-          data-ad-client="ca-pub-2783044520727903"
-          data-ad-slot="3025259193"></ins>
-     <script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-     </script></div></main>
-         <script>
-     try {
-       fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
-         return true;
-       }).catch(function(e) {
-         var carbonScript = document.createElement("script");
-         carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CE7DC2JW&placement=wwwcssscriptcom";
-         carbonScript.id = "_carbonads_js";
-         document.getElementById("carbon-block").appendChild(carbonScript);
-       });
-     } catch (error) {
-       console.log(error);
-     }
-     </script>
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-     
-       ga('create', 'UA-46156385-1', 'cssscript.com');
-       ga('send', 'pageview');
-     
-       </script>
   </body>
 </html>

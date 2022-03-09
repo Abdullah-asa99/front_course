@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;0,800;1,300&display=swap');
+
 :root {
   --primary-color_dark: #041e3d;
-  --menu-speed: 0.75s;
+  --menu-speed: 1s;
 }
 * {
   padding: 0;

@@ -6,11 +6,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="css/main-card.css" />
+    <link rel="stylesheet" href="css/menu.css" />
   </head>
   <body>
+    <div class="button-background"> 
+    <div class="button-div">
+      <a href="#" class="Buy-button">Buy</a>
+    </div>
+  </div>
+    <div class="menu-wrap">
+      <!-- fix icon alignment  -->
+      <input type="checkbox" class="toggler" />
+      <div class="hamburger"><div></div></div>
+      <div class="menu">
+        <div>
+          <ul class="list-items">
+            <li>
+              <ul>
+                <img src="assets/images/home-svg.svg" alt="home-icon" />
+                <a href="#">Home</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img src="assets/images/person.svg" alt="home-icon" />
+                <a href="#">Log in</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img
+                  src="assets/images/phone-svgrepo-com.svg"
+                  alt="home-icon"
+                />
+                <a href="#">Contact us</a>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <img
+                  src="assets/images/about-information-info-help-svgrepo-com.svg"
+                  alt="home-icon"
+                />
+                <a href="#">About</a>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
     <div class="my-row">
       <div class="example-1 my-card">
         <div class="wrapper">
+          
           <div class="the-cards">
             <div
               ontouchstart="touchStart(event)"
@@ -19,6 +67,7 @@
               id="backSheet"
               class="data"
             >
+              <div class=""></div>
               <div class="content">
                 <div class="blueeee">
                   <h1 class="product-name">product name</h1>
@@ -63,9 +112,10 @@
                     In my work, For he is a jolly good fellow, I focused on how
                     loneliness can affect a person's psyche and perceptions. I
                     as the will for a couple more fightsBoxing icon has the will
-                    for a couple more fightsBoxing icon has the will for a
-                    couple more fightsBoxing icon has the will for a couple more
+                    for a couple more fightsBoxing icon has the will for.
+                    
                   </p>
+                  <p class="space-holder"> holder </p>
                 </div>
               </div>
             </div>
@@ -94,6 +144,9 @@
                 <p class="text"></p>
               </div>
             </div> -->
+          </div>
+          
+          
           </div>
         </div>
       </div>
@@ -155,7 +208,7 @@
         } else if (startingY - 100 > movingY && !expanded) {
           //open
           /* onsole.log("up"); */
-          card.style.height = "670px";
+          card.style.height = "690px";
           expanded = true;
         }
       }
