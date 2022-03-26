@@ -11,6 +11,12 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+}
 body {
   background-image: linear-gradient(to right, #034378, #2d4e68);
   -webkit-font-smoothing: antialiased;
