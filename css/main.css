@@ -10,7 +10,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+html, body {
+  overflow-x: hidden;
+}
+body {
+  position: relative;
+}
 body {
   background: var(--primary-color_dark);
   margin: 0em;
