@@ -114,7 +114,7 @@ a {
 }
 
 .wrapper {
-  background-image: url('../../assets/images/art_item.jpg');
+  background-image: url('../assets/images/art_item.jpg');
   background-size: cover;
   background-position: 50% 50%;
   height: 100vh;
