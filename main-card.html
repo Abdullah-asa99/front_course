@@ -77,7 +77,7 @@
                       <img src="#" alt="artist-pic" />
                     </li>
                     <li>
-                      <h4><a href="#">artist name</a></h4>
+                      <h4><a href="#" class="artist-name">artist name</a></h4>
                     </li>
                   </ul>
                 </div>
@@ -185,7 +185,7 @@
         }
       } */
       let card = document.getElementById("backSheet");
-      card.style.height = "470px";
+      card.style.height = "350px";
       card.style.transition = "height 300ms";
       var startingX, startingY, movingX, movingY;
       function touchStart(evt) {
@@ -205,11 +205,11 @@
           //close
           /* console.log("down"); */
           expanded = false;
-          card.style.height = "470px";
+          card.style.height = "350px";
         } else if (startingY - 100 > movingY && !expanded) {
           //open
           /* onsole.log("up"); */
-          card.style.height = "690px";
+          card.style.height = "640px";
           expanded = true;
         }
       }
