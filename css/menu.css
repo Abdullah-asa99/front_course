@@ -132,7 +132,7 @@ ul > img {
   font-size: 1rem;
 
   opacity: 0;
-  transition: 0.0 ;
+  /* transition: 0.0 ; */
   margin-left: 10px;
 }
 .menu a:hover {
