@@ -76,6 +76,7 @@
 }
 .menu {
   position: fixed;
+
   top: 0;
   left: 0;
   background: #011a38fb;
@@ -106,7 +107,7 @@
   justify-content: center;
   text-align: left;
   opacity: 0;
-  transition: opacity 0.4s ease-in;
+  transition: 0.4s;
 }
 ul > img {
   width: 25px;
@@ -114,6 +115,7 @@ ul > img {
     brightness(80%) contrast(79%);
 }
 .menu ul {
+  position: static;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -127,9 +129,10 @@ ul > img {
 .menu > div a {
   text-decoration: none;
   color: #fafafa;
-  font-size: 1.5rem;
+  font-size: 1rem;
+
   opacity: 0;
-  transition: opacity 1s ease-in;
+  transition: 0.0 ;
   margin-left: 10px;
 }
 .menu a:hover {
@@ -141,15 +144,15 @@ ul > img {
 .menu-wrap .toggler:checked ~ .menu {
   opacity: 1;
   width: 30vw;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 .menu-wrap .toggler:checked ~ .menu > div {
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 .menu-wrap .toggler:checked ~ .menu > div a {
   opacity: 1;
-  transition: 0.4s;
+  transition: 0.1s;
 }
 
 @media (max-width: 500px) {
