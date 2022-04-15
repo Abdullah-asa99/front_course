@@ -144,13 +144,10 @@ ul.features-list li:before {
   width: 80%;
   margin: 0 auto 5em auto;
   border-radius: 1em;
-  
-  
 }
-cite{
+cite {
   margin-left: 3em;
   margin-right: 3em;
-  
 }
 
 .cards-artist {
@@ -244,6 +241,129 @@ nav li a:hover {
   margin: 0.5em;
   cursor: pointer;
 }
+.footer-section {
+  padding: 0;
+}
+footer {
+  position: relative;
+  width: auto;
+  height: auto;
+  padding: 50px 100px;
+  background: #111;
+  display: flex;
+  /* justify-content: space-between; */
+  flex-wrap: wrap;
+}
+footer .container {
+  display: flex;
+  width: auto;
+  margin: 0;
+  justify-content: space-between; 
+  flex-wrap: wrap;
+  flex-direction: row;
+  
+}
+footer .sec-aboutus {
+  margin-right: 30px;
+  width: 40%;
+}
+footer h2 {
+  position: relative;
+  color: white;
+  font-weight: 600;
+  margin-bottom: 15px;
+}
+footer h2::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #0255a8;
+}
+footer p {
+  color: #999;
+}
+.sci {
+  margin-top: 20px;
+  display: flex;
+}
+.sci li {
+  list-style: none;
+}
+.sci li a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+.sci li a:hover {
+  background: #0255a8a4;
+}
+.sci li a .fa {
+  color: #fff;
+  font-size: 18px;
+}
+.sec-quicklinks {
+  position: relative;
+  width: 25%;
+}
+.sec-quicklinks ul li {
+  list-style: none;
+}
+.sec-quicklinks ul li a {
+  color: #999;
+  text-decoration: none;
+  display: inline-block;
+}
+.sec-quicklinks ul li a:hover {
+  color: #fff;
+}
+.sec-contact{
+  width: calc(35% - 60px);
+  margin-right: 0 !important;
+}
+.sec-contact .info {
+  position: relative;
+}
+.sec-contact .info li{
+  display: flex;
+  margin-bottom: 16px;
+}
+.sec-contact .info li span:nth-child(1) {
+  color: #fff;
+  font-size: 20px;
+  margin-right: 10px;
+  
+}
+.sec-contact .info li span{
+  color: #999;
+}
+.sec-contact .info li p{
+  margin: 0;
+}
+.sec-contact .info li a{
+  color: #999;
+  text-decoration: none;
+}
+.sec-contact .info li a:hover{
+  color: white;
+}
+.copyrightText{
+  width: auto;
+  background-color: #111;
+  padding: 8px 100px;
+  text-align: center;
+  color: #999;
+}
+
 
 @media only screen and (min-width: 768px) {
   .mobile-menu,
@@ -300,7 +420,23 @@ nav li a:hover {
     color: white;
   }
 }
+@media only screen and (max-width: 991px){
 
+  footer{
+    padding: 40px;
+  }
+  footer .container{
+    flex-direction: column;
+  }
+  footer .container .sec-aboutus,.sec-contact,.sec-quicklinks{
+    margin-right: 0;
+    margin-bottom: 40px;
+    width: 100%;
+  }
+  .copyrightText{
+    padding: 8px 40px;
+  }
+}
 @media only screen and (min-width: 1080px) {
   .container {
     width: 1080px;
