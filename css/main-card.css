@@ -3,7 +3,17 @@
  */
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,500;0,800;1,300&display=swap');
  */
- @import"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap";:root{--secondary: #5b586e;--light: #f4f5f7;--dark: #222032;--white: #fff;--gray-200: #dde1ec;--gray-300: #b3b1c3;--black: #000;--primary: #395aff}
+@import "https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap";
+:root {
+  --secondary: #5b586e;
+  --light: #f4f5f7;
+  --dark: #222032;
+  --white: #fff;
+  --gray-200: #dde1ec;
+  --gray-300: #b3b1c3;
+  --black: #000;
+  --primary: #395aff;
+}
 
 :root {
   --primary-color_dark: #041e3d;
@@ -13,7 +23,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -25,9 +36,8 @@ body {
   -webkit-font-smoothing: antialiased;
   /* -moz-osx-font-smoothing: grayscale; */
   height: 100vh;
-  font-family: "Poppins",sans-serif;
+  font-family: "Poppins", sans-serif;
   margin: 0;
-  
 }
 
 a {
@@ -87,9 +97,8 @@ a {
   position: absolute;
   bottom: 0;
   width: 100%;
-  
 }
-.imgg{
+.imgg {
   vertical-align: 0;
 }
 .my-card .data .content {
@@ -97,7 +106,6 @@ a {
   position: relative;
   z-index: 1;
   border-radius: 40px 40px 0 0;
-  
 }
 .my-card .author {
   font-size: 12px;
@@ -122,7 +130,7 @@ a {
 }
 
 .wrapper {
-  background-image: url('../assets/images/art_item.jpg');
+  background-image: url("../assets/images/art_item.jpg");
   background-size: cover;
   background-position: 50% 50%;
   height: 100vh;
@@ -198,10 +206,9 @@ a {
 #backSheet .content {
   background-color: var(--primary-color_dark);
   padding: 0;
-  
+
   /* transform: translateY(0px); */
   /* height: 470px; */
-  
 }
 /* #backSheet .content:hover {
 
@@ -214,30 +221,40 @@ a {
   font-weight: 100;
   /* letter-spacing: 1px; */
 }
-h4{
-  
+h4 {
   margin-bottom: 5px;
 }
 .blueeee {
   color: #fff;
   padding: 16px;
 }
-
+.img-thumbnail {
+  width: 50px;
+  height: 50px;
+}
+.swipe-indicator {
+  background-color: #b8b8bd;
+  height: 7px;
+  border-radius: 1em;
+  position: relative;
+  width: 47px;
+  /* z-index: 999 */;
+  margin-top: 0px;
+  left: 40%;
+}
 .whiteee {
   background-color: white;
   border-radius: 40px 40px 0 0;
   padding: 16px;
   height: 100vh;
   position: relative;
-  
+  padding-top: 10px;
+
   /* overflow-y: scroll; */
 }
-.infoo{
-  
-  
+.infoo {
   height: 40vh;
   margin-bottom: 10vh;
-  
 }
 .nav-pilled-tab .nav-item {
   width: 100%;
@@ -259,7 +276,7 @@ h4{
   flex-wrap: nowrap;
   align-items: center;
 }
-.product-name{
+.product-name {
   text-transform: capitalize;
   font-size: 30px;
   margin-left: 10px;
@@ -275,11 +292,11 @@ h4{
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  -webkit-transition: .25s;
-  -moz-transition: .25s;
-  -o-transition: .25s;
-  -ms-transition: .25s;
-  transition: .25s;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  -ms-transition: 0.25s;
+  transition: 0.25s;
 }
 
 .blueeee ul {
@@ -306,11 +323,13 @@ h4{
 }
 .whiteee p {
   margin-top: 8px;
+  
 }
 .whiteee h5 {
   margin-bottom: 8px;
+  font-weight: 600;
 }
-.button-div{
+.button-div {
   margin-left: 10vw;
   position: absolute;
   top: 92%;
@@ -338,13 +357,12 @@ h4{
   position: absolute;
   border-radius: 1em;
   left: 0;
-  top:0;
+  top: 0;
   width: 100%;
   height: 100%;
   opacity: 0;
   transition: all 0.5s;
   /* box-shadow: 0 0 10px 40px white; */
-  
 }
 
 .button-div:active:after {
@@ -352,18 +370,18 @@ h4{
   position: absolute;
   border-radius: 1em;
   left: 0;
-  top:0;
+  top: 0;
   opacity: 1;
   transition: 0s;
   /* transition-duration: 0.1s; */
   background-color: #3a3a3a41;
 }
-.Buy-button{
+.Buy-button {
   color: #041e3d;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
-.space-holder{
+.space-holder {
   /*hide the text*/
   text-indent: 100%;
   white-space: nowrap;
