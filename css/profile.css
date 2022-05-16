@@ -101,6 +101,21 @@ p {
   height: 100vh;
 }
 
+.art-pic{
+  position: fixed;
+  height: 65vh;
+  width: 100%;
+  background-color: red;
+}
+.art-pic img{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+
 .blueeee {
   color: black;
   padding: 24px;
@@ -123,7 +138,7 @@ p {
 }
 .items-container {
   display: flex;
-  width: 100%;
+  /* width: 100%; */
 }
 
 .item-card {
@@ -133,4 +148,5 @@ p {
   background-image: url("../../assets/images/art_profile.jpg");
   background-size: cover;
   margin-right: 15px;
+  position: relative;
 }

@@ -7,7 +7,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/profile.css" />
     <link rel="stylesheet" href="css/menu.css" />
-    
   </head>
   <body>
     <div class="menu-wrap">
@@ -53,31 +52,29 @@
     </div>
     <div class="my-row">
       <div class="example-1 my-card">
-        <div class="wrapper" >
+        <div class="wrapper">
+          <div class="art-pic"><img src="" alt="" id="art-pic" /></div>
           <div class="the-cards">
             <div id="backSheet" class="data">
               <div class="content">
                 <div class="blueeee">
-                  <h1 class="name"> Margaret Handolias </h1>
+                  <h1 class="name" id="artistName">Margaret Handolias</h1>
                   <ul>
                     <li>
-                      <span class="type" style="font-weight: 100;">Artist</span>
+                      <span class="type" style="font-weight: 100">Artist</span>
                     </li>
-                    
                   </ul>
                   <h5>More items :</h5>
-                  <section class="items-container">
-                    <div id="itemCard" class="item-card">
-                        
-                    </div>
-                    <div id="itemCard" class="item-card">
-                        
-                    </div>
-                  </section>
-                  <h5>About</h5>
-                  <p>Student at University of Melbourne
-                    Prahran, Victoria, Australia </p>
 
+                  <div id="itemCard1" class="item-card">
+                    <section class="items-container" id="itemCard"></section>
+                  </div>
+
+                  <h5>About</h5>
+                  <p id="artistAbout">
+                    Student at University of Melbourne Prahran, Victoria,
+                    Australia
+                  </p>
                 </div>
               </div>
             </div>
@@ -173,5 +170,8 @@
         }
       }  */
     </script>
+
+    <!--Script made by Abdul-Muizz to load data (inlcuding images for more items) from firebase to profile.html page-->
+    <script type="module" src="display-profile-card.js"></script>
   </body>
 </html>
