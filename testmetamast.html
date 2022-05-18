@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </head>
+  <body>
+    <button id="connectWallet">connect wallet</button>
+    <p id="userWallet">address</p>
+
+    <script>
+      window.userWalletAdress = null;
+      const connectButton = document.getElementById("connectWallet");
+      const userwallet = document.getElementById("userWallet");
+
+      function toggleButton() {
+        if (!window.ethereum) {
+          connectButton.innerText = "MetaMask is not installed";
+
+          return false;
+        }
+
+        connectButton.addEventListener("click", LoginWithMetaMask);
+      }
+
+      async function LoginWithMetaMask() {
+        const accounts = await window.ethereum
+          .request({
+            method: "eth_requestAccounts",
+          })
+          .catch((e) => {
+            console.log(e.message);
+            return;
+          });
+
+        if (!accounts) {
+          return;
+        } // logged in
+        window.userWalletAdress = accounts[0];
+        connectButton.innerText = "Account connected";
+        connectButton.disabled = true;
+        userwallet.innerText = window.userWalletAdress;
+        console.log("address = " + userWalletAdress);
+
+        /* connectButton.removeEventListener("click", LoginWithMetaMask); */
+        /* connectButton.addEventListener("click", signoutMetaMask); */
+      }
+
+      /* function signoutMetaMask() {
+        window.userWalletAdress = null;
+        userwallet.innerText = "";
+        connectButton.innerText = "Sign out of MetaMask";
+        connectButton.addEventListener("click", LoginWithMetaMask);
+      } */
+
+      window.addEventListener("DOMContentLoaded", (event) => {
+        console.log("dom loaded");
+        toggleButton();
+      });
+    </script>
+  </body>
+</html>
