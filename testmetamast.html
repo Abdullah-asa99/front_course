@@ -49,10 +49,11 @@
               userwallet.innerText = "in mobile section";
               console.log("mobile detection");
               window.open("https://metamask.app.link/skAH3BaF99");
+              /* window.open("https://metamask.app.link/dapp/abdullah-asa99.github.io/front_course/testmetamast.html"); */
             }
           } else {
             console.log("Please install MetaMask!");
-            userwallet.innerText = "Please install MetaMask!"
+            userwallet.innerText = "Please install MetaMask!";
           }
         }
 
@@ -102,7 +103,7 @@
             )
           )
             check = true;
-        })(navigator.userAgent || navigator.vendor || window.opera);
+        })(navigator.userAgent||navigator.vendor||window.opera,'http://detectmobilebrowser.com/mobile');
         return check;
       };
     </script>
