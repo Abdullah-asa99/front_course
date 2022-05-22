@@ -130,33 +130,34 @@ a {
 }
 
 /* wallet icon */
-.nav-sec {
-  position: absolute;
-  display: flex;
-  z-index: 99;
-  width: 100%;
-  height: 70px;
-
-  flex-direction: row-reverse;
-
-  align-items: center;
-}
 
 .wallet {
   margin-top: 10px;
   margin-right: 15px;
   border-radius: 60px;
   box-shadow: 0px 3px 7px #666666;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  background: #041e3d;
+  /* font-family: Arial; */
+  font-weight: 500;
+  color: #041e3d;
+  font-size: 18px;
+  background: #22dea9;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
   border: none;
+  display: flex;
+  align-items: center;
 }
-
+.wallet i {
+  margin-right: 13px;
+}
 /*  */
+.menu-address {
+  font-size: small;
+  color: white;
+  width: 13em;
+  overflow-wrap: break-word;
+  margin: 0;
+}
 
 .wrapper {
   background-image: url("../assets/images/art_item.jpg");
@@ -373,28 +374,38 @@ h4 {
   margin-bottom: 8px;
   font-weight: 600;
 }
-.button-div {
-  margin-left: 10vw;
+.buttons-container {
   position: absolute;
   top: 90vh;
+
+  width: 100%;
+  height: 50px;
+
+  display: flex;
+  justify-content: space-evenly;
+
+  z-index: 98;
+}
+
+.button-div {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  width: 80%;
-  height: 50px;
-  margin-right: 7px;
   border: none;
   border-radius: 1em;
+  width: 42vw;
+  height: 50px;
+  font-size: 1.2em;
+
   background-color: #22dea9;
   color: var(--primary-color_dark);
-  font-size: 1.2em;
   cursor: pointer;
-  z-index: 98;
-  box-shadow: 1px 10px 30px 10px rgba(0, 0, 0, 0.3);
-  font-size: 1.3em;
-}
 
+  box-shadow: 1px 10px 30px 10px rgba(0, 0, 0, 0.3);
+}
+/* 
 .button-div:after {
   content: "";
   display: block;
@@ -406,7 +417,7 @@ h4 {
   height: 100%;
   opacity: 0;
   transition: all 0.5s;
-  /* box-shadow: 0 0 10px 40px white; */
+  box-shadow: 0 0 10px 40px white;
 }
 
 .button-div:active:after {
@@ -417,14 +428,23 @@ h4 {
   top: 0;
   opacity: 1;
   transition: 0s;
-  /* transition-duration: 0.1s; */
+  transition-duration: 0.1s;
   background-color: #3a3a3a41;
 }
+ */
 .Buy-button {
   color: #041e3d;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
 }
+.owner {
+  display: none;
+}
+.non-owner > .button-div  {
+  width: 70vw;
+  
+}
+
 .space-holder {
   /*hide the text*/
   text-indent: 100%;

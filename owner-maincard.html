@@ -6,9 +6,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
-  <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <link rel="stylesheet" href="css/owner-maincard.css" />
+  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/web3-provider@1.7.1/dist/umd/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
 
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/main-card.css" />
+  <script
+    src="https://kit.fontawesome.com/3fe8aae587.js"
+    crossorigin="anonymous"
+  ></script>
   <link rel="stylesheet" href="css/menu.css" />
 </head>
 
@@ -37,12 +43,7 @@
               <a href="#">Home</a>
             </ul>
           </li>
-          <li>
-            <ul>
-              <img src="./assets/images/person.svg" alt="home-icon" />
-              <a href="#">Log in</a>
-            </ul>
-          </li>
+         
           <li>
             <ul>
               <img src="./assets/images/phone-svgrepo-com.svg" alt="home-icon" />
@@ -54,6 +55,11 @@
               <img src="./assets/images/about-information-info-help-svgrepo-com.svg" alt="home-icon" />
               <a href="#">About</a>
             </ul>
+          </li>
+          <li>
+            <button class="wallet" onclick="connectWC()">
+              <i class="fa-solid fa-wallet fa-lg"></i>Connect
+            </button>
           </li>
         </ul>
       </div>
@@ -207,7 +213,71 @@
       }
     }
   </script>
+<!-- wallet -->
+<script type="text/javascript">
+  var account;
 
+  // https://docs.walletconnect.com/quick-start/dapps/web3-provider
+  var provider = new WalletConnectProvider.default({
+    rpc: {
+      1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
+      137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
+      // ...
+    },
+    // bridge: 'https://bridge.walletconnect.org',
+  });
+
+  var connectWC = async () => {
+    await provider.enable();
+
+    //  Create Web3 instance
+    const web3 = new Web3(provider);
+    window.w3 = web3;
+
+    var accounts = await web3.eth.getAccounts(); // get all connected accounts
+    account = accounts[0]; // get the primary account
+    document.getElementById("Address").innerText = account;
+  };
+
+  var sign = async (msg) => {
+    if (w3) {
+      return await w3.eth.personal.sign(msg, account);
+    } else {
+      return false;
+    }
+  };
+
+  var contract = async (abi, address) => {
+    if (w3) {
+      return new w3.eth.Contract(abi, address);
+    } else {
+      return false;
+    }
+  };
+
+  var disconnect = async () => {
+    // Close provider session
+    await provider.disconnect();
+  };
+
+  var address = "0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1";
+  var abi = [
+    {
+      inputs: [],
+      name: "count",
+      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      stateMutability: "view",
+      type: "function",
+    },
+    {
+      inputs: [],
+      name: "increment",
+      outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      stateMutability: "nonpayable",
+      type: "function",
+    },
+  ];
+</script>
   <script type="module" src="display-main-card.js"></script>
   <script src="assets/bootstrap.bundle.min.js"></script>
 </body>

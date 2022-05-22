@@ -18,11 +18,17 @@
   </head>
 
   <body>
-    <div class="nav-sec">
-      <div>
-        <button class="wallet" onclick="connectWC()">
-          <i class="fa-solid fa-wallet"></i>
-        </button>
+    <div id="ownerBtn" class="buttons-container owner">
+      <div class="button-div">
+        <a href="#" class="Buy-button">Location</a>
+      </div>
+      <div class="button-div">
+        <a href="#" class="Buy-button">Certification</a>
+      </div>
+    </div>
+    <div id="non-ownerBtn" class="buttons-container non-owner">
+      <div class="button-div">
+        <a href="#" onclick="SendTransaction()" class="Buy-button">buy</a>
       </div>
     </div>
 
@@ -42,12 +48,7 @@
                 <a href="#">Home</a>
               </ul>
             </li>
-            <li>
-              <ul>
-                <img src="./assets/images/person.svg" alt="home-icon" />
-                <a href="#">Log in</a>
-              </ul>
-            </li>
+
             <li>
               <ul>
                 <img
@@ -66,13 +67,16 @@
                 <a href="#">About</a>
               </ul>
             </li>
+            <li>
+              <button class="wallet" id="walletbtn" onclick="connectWC()">
+                <i id="walletIcon" class="fa-solid fa-wallet fa-lg"></i>Connect
+              </button>
+            </li>
+            <li>
+              <p id="Address" class="menu-address">address</p>
+            </li>
           </ul>
         </div>
-      </div>
-    </div>
-    <div class="button-background">
-      <div class="button-div">
-        <a href="#" class="Buy-button">Buy</a>
       </div>
     </div>
 
@@ -274,71 +278,8 @@
         }
       }
     </script>
-    <!-- wallet -->
-    <script type="text/javascript">
-      var account;
-
-      // https://docs.walletconnect.com/quick-start/dapps/web3-provider
-      var provider = new WalletConnectProvider.default({
-        rpc: {
-          1: "https://cloudflare-eth.com/", // https://ethereumnodes.com/
-          137: "https://polygon-rpc.com/", // https://docs.polygon.technology/docs/develop/network-details/network/
-          // ...
-        },
-        // bridge: 'https://bridge.walletconnect.org',
-      });
-
-      var connectWC = async () => {
-        await provider.enable();
-
-        //  Create Web3 instance
-        const web3 = new Web3(provider);
-        window.w3 = web3;
-
-        var accounts = await web3.eth.getAccounts(); // get all connected accounts
-        account = accounts[0]; // get the primary account
-        document.getElementById("Address").innerText = account;
-      };
-
-      var sign = async (msg) => {
-        if (w3) {
-          return await w3.eth.personal.sign(msg, account);
-        } else {
-          return false;
-        }
-      };
-
-      var contract = async (abi, address) => {
-        if (w3) {
-          return new w3.eth.Contract(abi, address);
-        } else {
-          return false;
-        }
-      };
-
-      var disconnect = async () => {
-        // Close provider session
-        await provider.disconnect();
-      };
-
-      var address = "0x4b4f8ca8fb3e66b5ddafcebfe86312cec486dae1";
-      var abi = [
-        {
-          inputs: [],
-          name: "count",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "increment",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ];
-    </script>
+    <!-- wallet change icon to connected when get owner-->
+    <script type="text/javascript" src="walletConnect.js"></script>
     <script type="module" src="display-main-card.js"></script>
     <script src="assets/bootstrap.bundle.min.js"></script>
   </body>
