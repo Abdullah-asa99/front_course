@@ -48,7 +48,12 @@
                 <a href="#">Home</a>
               </ul>
             </li>
-
+            <li>
+              <ul>
+                <img src="./assets/images/person.svg" alt="home-icon" />
+                <a href="#">Log in</a>
+              </ul>
+            </li>
             <li>
               <ul>
                 <img
@@ -79,7 +84,6 @@
         </div>
       </div>
     </div>
-
     <div class="my-row">
       <div class="example-1 my-card">
         <div class="wrapper">
@@ -106,7 +110,10 @@
                     </li>
                     <li>
                       <h4>
-                        <a href="#" class="artist-name" id="art-name"
+                        <a
+                          onclick="window.location='profile.html'+window.location.search;"
+                          class="artist-name"
+                          id="art-name"
                           >artist name</a
                         >
                       </h4>
@@ -278,9 +285,40 @@
         }
       }
     </script>
-    <!-- wallet change icon to connected when get owner-->
-    <script type="text/javascript" src="walletConnect.js"></script>
+    <script>
+      const currentURL = new URL(location.href);
+      //console.log(currentURL);
+      var itemID = currentURL.searchParams.get("itemID");
+      console.log("item id in new script: " + itemID);
+      function verifySignature(signature, empName, hash) {
+        const crypto = require("crypto");
+        const fs = require("fs");
+        const buffer = require("buffer");
+
+        //generate a path for public key
+        const publicKeyPath = empName + "-publickey.txt";
+        //read public key from file path
+        const publicKey = fs.readFileSync(publicKeyPath);
+        //convert signature string to buffer
+        const signatureBuffer = Buffer.from(signature);
+
+        const h = Buffer.from(hash); //hash value of transaction
+
+        //verify signature to see if its ok or not
+        const isVerified = crypto.verify(
+          "SHA256",
+          h,
+          publicKey,
+          signatureBuffer
+        );
+
+        return isVerified; //if not verified fix the UI
+      }
+    </script>
     <script type="module" src="display-main-card.js"></script>
+    <script type="text/javascript" src="walletConnect.js"></script>
     <script src="assets/bootstrap.bundle.min.js"></script>
+
+    <script type="module" src="URLgenerator.js"></script>
   </body>
 </html>
