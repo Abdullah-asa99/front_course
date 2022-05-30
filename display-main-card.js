@@ -1,39 +1,62 @@
-//Between line 1 and 10 contains ID of item to fetch from blockchain (this is dummy for now) 
-//Later will receive Item ID from the NFC chip
+//import {sayHi} from './sayHi.js';
+//sayHi('John'); // Hello, John!
+/* import {verifySignature} from "../../pbft/sandbox.js";
+ */
+
+//Between line 1 and 10 contains ID of item to fetch from blockchain (this comes from URL parameter) 
+const currentURL = new URL(location.href);
+//console.log(currentURL);
+var itemID = currentURL.searchParams.get("itemID");
+//console.log(itemID);
 
 //---------fetch from BLOCKCHAIN CODE-----------------------//
-var ID = 25;
+var ID = itemID; 
+
 
 //first fetch data from blockchain 
-await fetch("blockchain.json")
-    .then(function (response) {
-        return response.json();
-    }
-    )
-    .then(function (data) {
-        // console.log(ID);
-        //for each block in the chain
-        for (var i = 0; i < data["chain"].length; i++) {
-            //check if ID sent is equal to the block's id
-            if (ID == data["chain"][i]["id"]) {
-                document.getElementById("prodname").innerHTML = data["chain"][i]["data"]["product name"];
-                document.getElementById("art-name").innerHTML = data["chain"][i]["data"]["artist name"];
-                document.getElementById("authentic").innerHTML = "The item is authentic";
-                document.getElementById("itemPrice").innerHTML = data["chain"][i]["data"]["price"] + "$";
-                document.getElementById("size").innerHTML = data["chain"][i]["data"]["size"];
-                document.getElementById("artMedia").innerHTML = data["chain"][i]["data"]["media"];
-                document.getElementById("idea").innerHTML = data["chain"][i]["data"]["ideas behind work"];
+await fetch("pbft/blockchain.json")
+.then(function (response) {
+    return response.json();
+}
+)
+.then(function (resp) {
+    //for each block
+    for (var blockNum = 1; blockNum < resp.length; blockNum++) {
+        //for each transaction in the block
+        for (var transactionNum = 0; transactionNum < resp[1]["data"].length; transactionNum ++) {
+            var data = resp[blockNum]["data"][transactionNum]["input"]["data"]["data"];
+            //console.log(data["ID"]);
 
+            //if the itemID from URL is id from blockchain
+            if (data["ID"] == ID) {
+                document.getElementById("prodname").innerHTML = data["product name"];
+                document.getElementById("prodname2").innerHTML = data["product name"];
+                document.getElementById("art-name").innerHTML = data["artist name"];
+                document.getElementById("authentic").innerHTML = "The item is authentic";
+                document.getElementById("itemPrice").innerHTML = data["price"] + "$";
+                document.getElementById("itemPrice2").innerHTML = data["price"] + "$";
+                document.getElementById("size").innerHTML = data["size"];
+                document.getElementById("artMedia").innerHTML = data["Media"];
+                document.getElementById("idea").innerHTML = data["Idea behined the work"];
             }
         }
-    })
-    .catch(error => {
-        console.log(error);
-    });
+    }
+
+})
+.catch(error => {
+    console.log(error);
+});
 
 
 
-//---------------------------FIREBASE CODE-------------------------//
+
+
+
+//---------------------------FIREBASE CODE--------------------------------------------------//
+//get artist name from blockchain element 
+var artistName = document.getElementById("art-name").innerHTML; 
+console.log(artistName);
+
 
 // Import the functions needed
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.7.0/firebase-app.js";
@@ -59,14 +82,114 @@ const db = getDatabase();
 const storage = getStorage();
 
 
-//get artist name from html tag (which comes from blockchain)
-var artistName = document.getElementById("art-name").innerText; 
-console.log(artistName);
-
-GetURLFromStorage(artistName); //get item image url from storage
-GetURLFromRealTimeDb(artistName); //get artist image url from realtime
 
 
+GetURLFromRealTimeDb(artistName); //get artist image and correct item image url from realtime
+
+
+//-----get Download url for picture of ARTIST and IMAGE from real time db and put in main-card (based on artist name) 
+function GetURLFromRealTimeDb(artistName) {
+    const dbref = ref(db);
+
+    //get artist picture from real time db
+    get(child(dbref, "profileData/" + artistName))
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                //console.log(snapshot.val());
+                document.getElementById("artist-picture").src = snapshot.val()["artistpicurl"]; //assume that the key for artist picture is always "artistpicurl"   
+            }  
+            else {
+                console.log("No data found");
+            }
+        })
+        .catch((error) => {
+            console.log(error);
+        });
+
+
+    //get the item picture from real time db
+    get(child(dbref, "profileData/" + artistName + "/Items"))
+    .then((snapshot) => {
+        if (snapshot.exists()) {            
+            const keys = Object.keys(snapshot.val());
+            //console.log(keys);
+
+            keys.forEach((key, index) => {
+                if (key == ID) { //if key is same as ID of item fetched from blockchain
+                    //console.log(key);
+                    //console.log(snapshot.val()[key]);
+                    var img = document.getElementById("art-pic");
+                    img.src = snapshot.val()[key];
+                    var img2 = document.getElementById("art-pic2");
+                    img2.src = snapshot.val()[key];
+                }
+
+            });
+
+            
+        }
+        else {
+            console.log("No data found");
+        }
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+    
+
+} //end of method
+
+
+
+
+
+/*
+//get artist name FROM FIREBASE given an itemID 
+function getArtistName(itemid) {
+    var artistname = "";
+    const dbref = ref(db);
+    get(child(dbref, "profileData/" ))
+    .then(
+        (snapshot) => {
+            if (snapshot.exists()) {
+                const artistNames = Object.keys(snapshot.val()); //list of artist names in firebase
+
+
+                //for each artist
+                for (var i = 0; i < artistNames.length; i++) {
+                    var items = snapshot.val()[artistNames[i]].Items; //get their list of items
+                    var ids = Object.keys(items); //list of ids for each artist
+
+                    for (var j = 0; j < ids.length; j++) {
+                        //console.log(ids[j]);
+                        if (itemid == ids[j]) {
+                            artistname = artistNames[i];
+                        }
+                    }                    
+                } 
+            }
+            else {
+                console.log("No data found");
+            }
+            console.log(artistname);
+            //return artistname;
+        }
+    )
+    .catch((error) => {
+        console.log(error);
+    });
+}
+*/
+
+
+
+
+
+
+
+
+
+/*
 //function to get item image urls from storage and put it in more items 
 function GetURLFromStorage(artistName) {
     const storageRef = sRef(storage);
@@ -86,59 +209,10 @@ function GetURLFromStorage(artistName) {
         .catch((error) => {
             console.log(error);
         });
-
-
 }
-
-
-
-//-----get Download url for picture of ARTIST from real time db and put in main-card (based on artist name) 
-function GetURLFromRealTimeDb(artistName) {
-    const dbref = ref(db);
-    get(child(dbref, "profileData/" + artistName))
-        .then((snapshot) => {
-            if (snapshot.exists()) {
-                console.log(snapshot.val());
-                document.getElementById("artist-picture").src = snapshot.val()["artistpicurl"]; //assume that the key for artist picture is always "artistpicurl"
-            }
-            else {
-                console.log("No data found");
-            }
-        })
-        .catch((error) => {
-            console.log(error);
-        });
-
-}
+*/
 
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-    // //function to get profile data for artist with artistName as parameter
-    // function getData(artistName) {
-    //     const dbref = ref(db);
-//     get(child(dbref, "profileData/" + artistName))
-//         .then((snapshot) => {
-//             if (snapshot.exists()) {
-//                 document.getElementById("artistName").innerHTML = artistName;
-//                 document.getElementById("artistAbout").innerHTML = snapshot.val().about;
-//             }
-//             else {
-//                 console.log("No data found");
-//             }
-//         })
-//         .catch((error) => {
-//             console.log(error);
-//         });
-// }

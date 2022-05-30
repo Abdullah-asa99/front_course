@@ -35,8 +35,8 @@ function initMap() {
         });   
 
 
-      //when you hover over marker show info window
-      marker.addListener("mouseover", () => {
+      //when you click on marker show info window
+      marker.addListener("click", () => {
           infowindow.open({
             anchor: marker,
             map,
@@ -44,13 +44,15 @@ function initMap() {
           });
         });
 
+      /*
       //when you howver out of marker close window
-      marker.addListener('mouseout', ()=>{
+      marker.addListener('onclick', ()=>{
           infowindow.close();
       });
+      */
 
 
-    }, 2000);
+    }, 3000);
   
     //location data from tags (from firebase)
     // const latitude = document.getElementById("latitude").innerText; //from firebase
