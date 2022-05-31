@@ -341,9 +341,12 @@
 
       let card = document.getElementById("backSheet");
       let buybtn = document.getElementById("non-ownerBtn");
-
+      let Obuybtn = document.getElementById("ownerBtn");
+      
+      
       buybtn.style.bottom = "120px";
       buybtn.style.transition = "bottom 300ms";
+      Obuybtn.style.transition = "bottom 300ms";
       card.style.height = "350px";
       card.style.transition = "height 300ms";
       var startingX, startingY, movingX, movingY;
@@ -365,10 +368,12 @@
           expanded = false;
           card.style.height = "350px";
           buybtn.style.bottom = "120px";
+          Obuybtn.style.bottom = "120px";
         } else if (startingY - 100 > movingY && !expanded) {
           //console.log("up");
           card.style.height = "640px";
           buybtn.style.bottom = "40px";
+          Obuybtn.style.bottom = "40px";
           expanded = true;
         }
       }

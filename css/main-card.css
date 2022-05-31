@@ -489,7 +489,9 @@ h4 {
   font-weight: 500;
 }
 .owner {
+  
   display: none;
+  bottom: 120px;
 }
 .non-owner > .button-div {
   width: 70vw;
