@@ -95,6 +95,21 @@ async function mainFunction() {
         var isVerified = false; //we set it to false because if it couldn't execute likely that employee doesn't exist
     }
     console.log("Result of signature verification: " + isVerified);
+
+
+    if (isVerified) {
+        
+    } else {
+        document.getElementById("bluecard").style.display = "none";
+        document.getElementById("whitecontent").style.display = "none";
+        document.getElementById("authentic").innerHTML = "Item not authentic";
+        document.getElementById("non-ownerBtn").style.display = "none";
+        document.getElementById("authenticIcon").style.display = "none";
+        document.getElementById("swiper").style.display = "none";
+        document.getElementById("error").style.display = "flex";
+        
+        
+    }   
 }
 
 
