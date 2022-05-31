@@ -38,6 +38,14 @@ await fetch("pbft/blockchain.json")
                 document.getElementById("size").innerHTML = data["size"];
                 document.getElementById("artMedia").innerHTML = data["Media"];
                 document.getElementById("idea").innerHTML = data["Idea behined the work"];
+                if (data["previous owners"]!="") {
+                    document.getElementById("PrevOwner").style.display = "flex";
+                    document.getElementById("PrevOwnerKey").innerHTML = data["previous owners"];
+                
+                }
+                
+                
+
             }
         }
     }

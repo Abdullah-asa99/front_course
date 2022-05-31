@@ -140,7 +140,8 @@ async function SendTransaction() {
       },
     };
     console.log(JSON.stringify(transaction));
-    var axios = require("axios");
+    
+   /*  var axios = require("axios");
     var config = {
       method: "post",
       proxy: {
@@ -159,7 +160,7 @@ async function SendTransaction() {
       })
       .catch(function (error) {
         console.log(error);
-      });
+      }); */
   };
 
   async function signTransaction(obj) {
